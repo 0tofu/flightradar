@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  dump1090-fa:
+    build: ./dump1090-fa
+    image: otofu/dump1090-fa
+    container_name: dump1090-fa
+    restart: unless-stopped
+    devices:
+      - /dev/bus/usb
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      TZ: Asia/Tokyo
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
