@@ -16,3 +16,14 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+  fr24feed:
+    build: ./fr24feed
+    image: otofu/fr24feed
+    container_name: fr24feed
+    restart: unless-stopped
+    volumes:
+      - ./fr24feed/fr24feed.ini:/etc/fr24feed.ini
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
