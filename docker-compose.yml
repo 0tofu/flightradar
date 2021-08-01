@@ -27,3 +27,14 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+  piaware:
+    build: ./piaware
+    image: otofu/piaware
+    container_name: piaware
+    restart: unless-stopped
+    volumes:
+      - ./piaware/piaware.conf:/etc/piaware.conf
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
