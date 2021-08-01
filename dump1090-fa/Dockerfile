@@ -38,6 +38,6 @@ COPY nginx.conf /nginx.conf
 COPY mime.types /mime.types
 COPY run.sh /run.sh
 
-EXPOSE 8080 30005
+EXPOSE 8080 30001 30002 30003 30004 30005 30104
 
 ENTRYPOINT ["/run.sh"]
