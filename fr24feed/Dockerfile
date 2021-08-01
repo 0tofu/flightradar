@@ -24,6 +24,6 @@ COPY --from=builder /fr24feed/fr24feed /usr/local/bin/fr24feed
 RUN set -eux \
   && touch /etc/fr24feed.ini
 
-EXPOSE 8754 30003 30334
+EXPOSE 8754 10001 30003 30334
 
 ENTRYPOINT ["/usr/local/bin/fr24feed"]
