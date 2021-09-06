@@ -1,4 +1,4 @@
-FROM debian:stable-slim as builder
+FROM debian:buster-slim as builder
 # ビルド用依存ライブラリインストール.
 RUN set -eux \
   && apt-get update \
@@ -42,7 +42,7 @@ RUN set -eux \
   && dpkg-buildpackage -b
 
 # piawareイメージ生成.
-FROM debian:stable-slim
+FROM debian:buster-slim
 RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -64,7 +64,7 @@ RUN set -eux \
   itcl3 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
-COPY --from=builder /tmp/piaware_builder/piaware_5.0_amd64.deb /tmp/piaware.deb
+COPY --from=builder /tmp/piaware_builder/piaware_6.0_amd64.deb /tmp/piaware.deb
 COPY --from=builder /tmp/tcltls-rebuild/tcl-tls_1.7.16-1+fa1_amd64.deb /tmp/tcl-tls.deb
 RUN set -eux \
   && dpkg -i /tmp/tcl-tls.deb \
