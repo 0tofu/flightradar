@@ -10,8 +10,8 @@ RUN set -eux \
 
 WORKDIR /fr24feed
 RUN set -eux \
-  && wget https://repo-feed.flightradar24.com/linux_x86_64_binaries/fr24feed_1.0.25-3_amd64.tgz \
-  && tar xzvf fr24feed_1.0.25-3_amd64.tgz --strip-components 1
+  && wget https://repo-feed.flightradar24.com/linux_x86_64_binaries/fr24feed_1.0.34-0_amd64.tgz \
+  && tar xzvf fr24feed_1.0.34-0_amd64.tgz --strip-components 1
 
 FROM debian:stable-slim
 RUN set -eux \
